@@ -1,0 +1,177 @@
+\begin{exercise}
+    Let \(X = \{a, b, c\}\) and \(Y = \{u, v\}\). List all the maps from \(X\) to \(Y\) and list all the maps from \(Y\) to \(X\).
+\end{exercise}
+\begin{solution}
+    Maps from \(X\) to \(Y\):
+    \[\begin{pmatrix}
+            a & b & c \\
+            u & u & u
+        \end{pmatrix} \quad
+        \begin{pmatrix}
+            a & b & c \\
+            u & u & v
+        \end{pmatrix} \quad
+        \begin{pmatrix}
+            a & b & c \\
+            u & v & u
+        \end{pmatrix} \quad
+        \begin{pmatrix}
+            a & b & c \\
+            u & v & v
+        \end{pmatrix}\]
+    \[\begin{pmatrix}
+            a & b & c \\
+            v & u & u
+        \end{pmatrix} \quad
+        \begin{pmatrix}
+            a & b & c \\
+            v & u & v
+        \end{pmatrix} \quad
+        \begin{pmatrix}
+            a & b & c \\
+            v & v & u
+        \end{pmatrix} \quad
+        \begin{pmatrix}
+            a & b & c \\
+            v & v & v
+        \end{pmatrix}\]
+
+    Maps from \(Y\) to \(X\):
+    \[\begin{pmatrix}
+            u & v \\
+            a & a
+        \end{pmatrix} \quad
+        \begin{pmatrix}
+            u & v \\
+            a & b
+        \end{pmatrix} \quad
+        \begin{pmatrix}
+            u & v \\
+            a & c
+        \end{pmatrix} \quad
+        \begin{pmatrix}
+            u & v \\
+            b & a
+        \end{pmatrix} \quad
+        \begin{pmatrix}
+            u & v \\
+            b & b
+        \end{pmatrix} \quad
+        \begin{pmatrix}
+            u & v \\
+            b & c
+        \end{pmatrix} \quad
+        \begin{pmatrix}
+            u & v \\
+            c & a
+        \end{pmatrix} \quad
+        \begin{pmatrix}
+            u & v \\
+            c & b
+        \end{pmatrix} \quad
+        \begin{pmatrix}
+            u & v \\
+            c & c
+        \end{pmatrix}\]
+\end{solution}
+
+\begin{exercise}
+    Let \(g : X \to Y\) and \(f : Y \to Z\) be functions. Show that:
+    \begin{enumerate}
+        \item if \(f\) and \(g\) are both injective then \(fg\) is injective;
+        \item if \(f\) and \(g\) are both surjective then \(fg\) is surjective.
+    \end{enumerate}
+
+    Give examples to show that if \(f\) is injective and \(g\) is surjective then \(fg\) need
+    neither be injective nor surjective.
+\end{exercise}
+\begin{solution}\itemfix
+    \begin{enumerate}
+        \item If \(x_1 \neq x_2\) then \(f(x_1) \neq f(x_2)\), therefore \(g(f(x_1)) \neq g(f(x_1))\)
+        \item \[\forall z \in Z \ \ \exists y \in Y : g(y) = z, \exists x \in X : f(x) = y \Rightarrow g(f(x)) = z\]
+    \end{enumerate}
+
+    Let:
+    \[X = \{1, 2\}, \quad Y = \{3, 4, 5\}, \quad Z = \{6, 7\}, \quad f = \begin{pmatrix} 1 & 2 \\ 3 & 4 \end{pmatrix}, \quad g = \begin{pmatrix} 3 & 4 & 5 \\ 6 & 6 & 7 \end{pmatrix}\]
+    Then \(fg\) is:
+    \[fg = \begin{pmatrix} 1 & 2 \\ 6 & 6 \end{pmatrix}\]
+    , which is neither injective nor surjective.
+\end{solution}
+
+\begin{exercise}
+    When \(X = \{a, b, c\}\), list all the maps \(f : X \to X\) which are constant (so that \(f(a) = f(b) = f(c)\)), Write down the composition table for these maps. Do these maps form a group?
+\end{exercise}
+\begin{solution}
+    \[f = \begin{pmatrix} a & b & c \\ a & a & a \end{pmatrix} \quad g = \begin{pmatrix} a & b & c \\ b & b & b \end{pmatrix} \quad h = \begin{pmatrix} a & b & c \\ c & c & c \end{pmatrix}\]
+
+    \begin{center}
+        \begin{tabular}{C|C|C|C}
+              & f & g & h \\ \hline
+            f & f & g & h \\
+            g & f & g & h \\
+            h & f & g & h
+        \end{tabular}
+    \end{center}
+
+    These maps do not form a group since no neutral element exists.
+\end{solution}
+
+\begin{exercise}
+    Prove that the relation on the set \(\mathbb{Z}\) defined by \(xRy\) if \(x + y\) is an even integer is an equivalence relation, and determine the equivalence classes. Is the relation \(xRy\) if \(x + y\) is divisible by \(3\) an equivalence relation?
+\end{exercise}
+\begin{solution}\itemfix
+    \begin{enumerate}
+        \item \(xRy : x + y \equiv 0 \mod 2\) is an equivalence relation:
+
+              \begin{enumerate}
+                  \item \(xRx\) since \(x + x = 2x \equiv 0 \mod 2\)
+                  \item Symmetry follows from commutativity of addition.
+                  \item \(xRy \Rightarrow y - x \equiv 0 \mod 2, yRz \Rightarrow z - y \equiv 0 \mod 2 \Rightarrow z - x \equiv 0 \mod 2 \Rightarrow z + x \equiv 0 \mod 2 \Rightarrow zRx \Rightarrow xRz\)
+              \end{enumerate}
+
+        \item Equivalence classes:
+
+              \[[(x, y) : x \equiv y \mod 2] \quad [(x, y) : x \not\equiv y \mod 2]\]
+
+        \item No, because \(1 + 1 \not\equiv 0 \mod 3\), therefore \(R\) is not reflective.
+    \end{enumerate}
+\end{solution}
+
+\begin{exercise}
+    Write down the addition table for the congruence classes modulo 4, and the multiplication table for the non-zero congruence classes modulo 5.
+\end{exercise}
+\begin{solution}
+    Denoting congruence classes by smallest positive member of each class:
+
+    \begin{center}
+        \begin{tabular}{C|C|C|C|C}
+            + & 0 & 1 & 2 & 3 \\ \hline
+            0 & 0 & 1 & 2 & 3 \\
+            1 & 1 & 2 & 3 & 0 \\
+            2 & 2 & 3 & 0 & 1 \\
+            3 & 3 & 0 & 1 & 2 \\
+        \end{tabular}
+    \end{center}
+
+    \begin{center}
+        \begin{tabular}{C|C|C|C|C}
+            \cdot & 1 & 2 & 3 & 4 \\ \hline
+            1     & 1 & 2 & 3 & 4 \\
+            2     & 2 & 4 & 1 & 3 \\
+            3     & 3 & 1 & 4 & 2 \\
+            4     & 4 & 3 & 2 & 1 \\
+        \end{tabular}
+    \end{center}
+\end{solution}
+
+\begin{exercise}
+    Show that multiplication of congruence classes modulo \(n\) is well-defined.
+\end{exercise}
+\begin{solution}
+    Need to prove that if \([x_1]_n = [x_2]_n\) and \([y_1]_n = [y_2]_n\) then \([x_1y_1]_n = [x_2y_2]_n\).
+
+    Let \(x_1 = an + b, x_2 = cn + b, y_1 = en + d, y_2 = fn + d\)
+    \[x_1 y_1 = aen^2 + n(ab + be) + bd \equiv bd \mod n\]
+    \[x_2 y_2 \equiv bd \mod n\]
+    Therefore \(x_1y_1\) and \(x_2y_2\) lie in the same congruence class.
+\end{solution}
