@@ -1,0 +1,156 @@
+\begin{exercise}
+    Determine which of the following sets are groups under the specified operations:
+    \begin{enumerate}
+        \item the integers under the operation of subtraction;
+        \item the set \(\R\) of real numbers under the operation \(\circ\) given by \(a \circ b = a + b + 2\);
+        \item the set of odd integers under the operation of multiplication;
+        \item the set of \(n \times n\) real matrices whose determinant is either \(1\) or \( - 1\), under matrix multiplication.
+    \end{enumerate}
+\end{exercise}
+
+\begin{solution}\itemfix
+    \begin{enumerate}
+        \item No, since no identity exists, because \(x - e = x\) implies \(e = 0\), but \(0 - x = x\) does not hold for arbitrary \(x\).
+        \item Yes, since:
+              \begin{enumerate}
+                  \item \(a + b + 2 \in \R\)
+                  \item \begin{align*}
+                            (a \circ b) \circ c = a \circ (b \circ c) & \Leftrightarrow (a + b + 2) + c + 2 = a + (b + c + 2) + 2 \\
+                                                                      & \Leftrightarrow a + b + c + 4 = a + b + c + 4
+                        \end{align*}
+                        , which holds.
+                  \item \( - 2\) is the identity element:
+                        \[ - 2 \circ a = - 2 + a + 2 = a = a \circ (- 2)\]
+                  \item \(g^{ - 1} = - g - 4\):
+                        \[g \circ g^{ - 1} = g - g - 4 + 2 = - 2 = g^{ - 1} \circ g\]
+              \end{enumerate}
+        \item No, since there is no multiplicative inverse in integers.
+        \item Yes, since:
+              \begin{enumerate}
+                  \item A matrix product of \(n \times n\) is an \(n \times n\) matrix, and a determinant of such a product is a product of determinants of those matrices. Since the set \(\{ - 1, 1\}\) is closed under multiplication, the set at hand is closed under matrix multiplication.
+                  \item Matrix product is associative.
+                  \item The identity matrix is the identity element and has \(\det = 1\).
+                  \item The inverse element is the matrix inverse. \(A^{ - 1}\) has determinant of \( \pm 1\) because \(A A^{ - 1} = I\) and \(\det\) is distributive with respect to the matrix product:
+                        \begin{align*}
+                            A A^{ - 1}                 & = I      \\
+                            \det(A A^{ - 1})           & = \det I \\
+                            \det A \cdot \det A^{ - 1} & = 1      \\
+                            \pm 1 \cdot \det A^{ - 1}  & = 1      \\
+                            \det A^{ - 1}              & = \mp 1
+                        \end{align*}
+              \end{enumerate}
+    \end{enumerate}
+\end{solution}
+
+\begin{exercise}
+    Calculate the multiplication table for the following eight \(2 \times 2\) complex matrices, and deduce that they form a non-abelian group:
+
+    \[
+        I=\left(\begin{array}{rr}
+                1 & 0 \\
+                0 & 1
+            \end{array}\right), \quad
+        A=\left(\begin{array}{rr}
+                i & 0  \\
+                0 & -i
+            \end{array}\right), \quad
+        B=\left(\begin{array}{rr}
+                - 1 & 0  \\
+                0   & -1
+            \end{array}\right), \quad
+        C=\left(\begin{array}{rr}
+                -i & 0 \\
+                0  & i
+            \end{array}\right), \]
+    \[ D =\left(\begin{array}{rr}
+                0 & 1 \\
+                1 & 0
+            \end{array}\right), \quad
+        E =\left(\begin{array}{rr}
+                0  & i \\
+                -i & 0
+            \end{array}\right), \quad
+        F=\left(\begin{array}{rr}
+                0  & -1 \\
+                -1 & 0
+            \end{array}\right), \quad
+        G=\left(\begin{array}{rr}
+                0 & -i \\
+                i & 0
+            \end{array}\right) \]
+\end{exercise}
+
+\begin{solution}\itemfix
+    \begin{center}
+        \begin{tabular}{C|C|C|C|C|C|C|C|C}
+              & I & A & B & C & D & E & F & G \\ \hline
+            I & I & A & B & C & D & E & F & G \\
+            A & A & B & C & I & E & F & G & D \\
+            B & B & C & I & A & F & G & D & E \\
+            C & C & I & A & B & G & D & E & F \\
+            D & D & G & F & E & I & C & B & A \\
+            E & E & D & G & F & A & I & C & B \\
+            F & F & E & D & G & B & A & I & C \\
+            G & G & F & E & D & C & B & A & I \\
+        \end{tabular}
+    \end{center}
+
+    Non-commutativity is trivial since \(CD \neq DC\). Closure follows from the table, associativity is trivial, the identity element is \(I\), and the inverse element can be found in the table for each element.
+\end{solution}
+
+\begin{exercise}
+    Find the multiplication table for the eight symmetries of a square.
+\end{exercise}
+\begin{solution}
+    None, since I can't automate it and I'm not calculating this by hand.
+\end{solution}
+
+\begin{exercise}
+    Find the symmetry groups of
+    \begin{enumerate}
+        \item a non-square rectangle,
+        \item a parallelogram with unequal sides which is not a rectangle,
+        \item a non-square rhombus.
+    \end{enumerate}
+\end{exercise}
+
+\begin{solution}\itemfix
+    \begin{enumerate}
+        \item \(e\), 180 degree rotations, reflection on both axis parallel to the rectangle's sides.
+        \item \(e\), 180 degree rotations.
+        \item \(e\), 180 degree rotations, reflection on both axis parallel to the rhombus's sides.
+    \end{enumerate}
+\end{solution}
+
+\begin{exercise}
+    Write down the multiplication tables for the groups \(C_2 \times C_3\) and \(C_3 \times C_3\).
+\end{exercise}
+\begin{solution}\itemfix
+    \begin{center}
+        \begin{tabular}{C|C|C|C|C|C|C}
+                       & (c_0, c_0) & (c_0, c_1) & (c_0, c_2) & (c_1, c_0) & (c_1, c_1) & (c_1, c_2) \\ \hline
+            (c_0, c_0) & (c_0, c_0) & (c_0, c_1) & (c_0, c_2) & (c_1, c_0) & (c_1, c_1) & (c_1, c_2) \\
+            (c_0, c_1) & (c_0, c_1) & (c_0, c_2) & (c_0, c_0) & (c_1, c_1) & (c_1, c_2) & (c_1, c_0) \\
+            (c_0, c_2) & (c_0, c_2) & (c_0, c_0) & (c_0, c_1) & (c_1, c_2) & (c_1, c_0) & (c_1, c_1) \\
+            (c_1, c_0) & (c_1, c_0) & (c_1, c_1) & (c_1, c_2) & (c_0, c_0) & (c_0, c_1) & (c_0, c_2) \\
+            (c_1, c_1) & (c_1, c_1) & (c_1, c_2) & (c_1, c_0) & (c_0, c_1) & (c_0, c_2) & (c_0, c_0) \\
+            (c_1, c_2) & (c_1, c_2) & (c_1, c_0) & (c_1, c_1) & (c_0, c_2) & (c_0, c_0) & (c_0, c_1) \\
+        \end{tabular}
+    \end{center}
+
+    Not doing the other one.
+\end{solution}
+
+\begin{exercise}
+    Show that \(G \times H\) is abelian if and only if \(G\) and \(H\) are each abelian.
+\end{exercise}
+\begin{solution}\itemfix
+    \begin{itemize}
+        \item [\( \Rightarrow \)] Since \(G \times H\) is abelian,
+              \[\forall i,j,k,l \quad (g_i, h_j)(g_k, h_l) = (g_k, h_l)(g_i, h_j)\]
+              \[(g_i g_k, h_j h_l) = (g_i, h_j)(g_k, h_l) = (g_k, h_l)(g_i, h_j) = (g_k g_i, h_l h_j)\]
+              \[(g_i g_k, h_j h_l) = (g_k g_i, h_l h_j)\]
+              \[g_i g_k = g_k g_i \quad h_j h_l = h_l h_j\]
+        \item [\( \Leftarrow \)] The same argument from the bottom up follows.
+    \end{itemize}
+\end{solution}

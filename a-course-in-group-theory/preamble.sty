@@ -1,0 +1,153 @@
+\documentclass[12pt, a4paper]{article}
+
+% Math symbols
+\usepackage{amsmath, amsthm, amsfonts, amssymb}
+\usepackage{accents}
+\usepackage{esvect}
+\usepackage{mathrsfs}
+\usepackage{mathtools}
+\mathtoolsset{showonlyrefs}
+\usepackage{cmll}
+\usepackage{stmaryrd}
+\usepackage{physics}
+\usepackage[normalem]{ulem}
+\usepackage{ebproof}
+\usepackage{extarrows}
+
+% Page layout
+\usepackage{geometry}
+\usepackage{a4wide}
+\usepackage{parskip}
+\usepackage{fancyhdr}
+\setlength{\headheight}{15pt}
+
+% Font, encoding, russian support
+\usepackage[russian]{babel}
+\usepackage[sb]{libertine}
+\usepackage{xltxtra}
+
+% Listings
+\usepackage{listings}
+\lstset{basicstyle=\ttfamily,breaklines=true}
+\setmonofont{Inconsolata}
+
+% Miscellaneous
+\usepackage{array}
+\usepackage{calc}
+\usepackage{caption}
+\usepackage{subcaption}
+\captionsetup{justification=centering,margin=2cm}
+\usepackage{catchfilebetweentags}
+\usepackage{enumitem}
+\usepackage{etoolbox}
+\usepackage{float}
+\usepackage{lastpage}
+\usepackage{minted}
+\usepackage{svg}
+\usepackage{wrapfig}
+\usepackage{xcolor}
+\usepackage[makeroom]{cancel}
+
+\newcolumntype{L}{>{$}l<{$}}
+    \newcolumntype{C}{>{$}c<{$}}
+\newcolumntype{R}{>{$}r<{$}}
+
+% Footnotes
+\usepackage[hang]{footmisc}
+\setlength{\footnotemargin}{2mm}
+\makeatletter
+\def\blfootnote{\gdef\@thefnmark{}\@footnotetext}
+\makeatother
+
+% References
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks,
+    linkcolor={blue!80!black},
+    citecolor={blue!80!black},
+    urlcolor={blue!80!black},
+}
+
+\pagestyle{fancy}
+\lhead{A course in group theory}
+\cfoot{}
+\rhead{page \thepage\ of \pageref*{LastPage}}
+
+\theoremstyle{definition}
+\newtheorem{exercise}{Exercise}[section]
+\newenvironment{solution}[1][Solution.]{\begin{proof}[#1]}{\end{proof}}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\B}{\mathbb{B}}
+\newcommand{\N}{\mathbb{N}}
+\renewcommand{\Re}{\mathfrak{R}}
+\renewcommand{\Im}{\mathfrak{I}}
+
+\newcommand{\const}{\text{const}}
+\newcommand{\cond}{\text{cond}}
+
+\DeclareMathOperator*{\xor}{\oplus}
+\DeclareMathOperator*{\equ}{\sim}
+\DeclareMathOperator{\sign}{\text{sign}}
+
+\DeclarePairedDelimiter{\ceil}{\lceil}{\rceil}
+
+\newcommand{\dbltilde}[1]{\accentset{\approx}{#1}}
+\newcommand{\intt}{\int\!}
+\renewcommand{\ker}{\text{Ker }}
+\newcommand{\im}{\text{Im }}
+\renewcommand{\grad}{\text{grad}}
+\newcommand{\rg}{\text{rg}}
+\newcommand{\defeq}{\stackrel{\text{def}}{=}}
+\newcommand{\defeqfor}[1]{\stackrel{\text{def } #1}{=}}
+\newcommand{\itemfix}{\leavevmode\makeatletter\makeatother}
+\newcommand{\?}{\textcolor{red}{???}}
+\renewcommand{\emptyset}{\varnothing}
+\newcommand{\longarrow}[1]{\xRightarrow[#1]{\qquad}}
+\DeclareMathOperator*{\esup}{\text{ess sup}}
+\newcommand\smallO{
+    \mathchoice
+    {{\scriptstyle\mathcal{O}}}% \displaystyle
+    {{\scriptstyle\mathcal{O}}}% \textstyle
+    {{\scriptscriptstyle\mathcal{O}}}% \scriptstyle
+    {\scalebox{.6}{$\scriptscriptstyle\mathcal{O}$}}%\scriptscriptstyle
+}
+\renewcommand{\div}{\text{div}\ }
+\newcommand{\rot}{\text{rot}\ }
+\newcommand{\cov}{\text{cov}}
+
+\makeatletter
+\newcommand{\oplabel}[1]{\refstepcounter{equation}(\theequation\ltx@label{#1})}
+\makeatother
+
+\newcommand{\symref}[2]{\stackrel{\oplabel{#1}}{#2}}
+\newcommand{\symrefeq}[1]{\symref{#1}{=}}
+
+% xrightrightarrows
+\makeatletter
+\newcommand*{\relrelbarsep}{.386ex}
+\newcommand*{\relrelbar}{%
+    \mathrel{%
+        \mathpalette\@relrelbar\relrelbarsep
+    }%
+}
+\newcommand*{\@relrelbar}[2]{%
+    \raise#2\hbox to 0pt{$\m@th#1\relbar$\hss}%
+    \lower#2\hbox{$\m@th#1\relbar$}%
+}
+\providecommand*{\rightrightarrowsfill@}{%
+    \arrowfill@\relrelbar\relrelbar\rightrightarrows
+}
+\providecommand*{\leftleftarrowsfill@}{%
+    \arrowfill@\leftleftarrows\relrelbar\relrelbar
+}
+\providecommand*{\xrightrightarrows}[2][]{%
+    \ext@arrow 0359\rightrightarrowsfill@{#1}{#2}%
+}
+\providecommand*{\xleftleftarrows}[2][]{%
+    \ext@arrow 3095\leftleftarrowsfill@{#1}{#2}%
+}
+
+\allowdisplaybreaks
