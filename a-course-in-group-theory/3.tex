@@ -1,0 +1,88 @@
+\begin{exercise}
+    Let \(G\) be a group in which \(g^2 = 1\) for all \(g\) in \(G\). Prove that \(G\) is abelian.
+\end{exercise}
+\begin{solution}
+    Proving from the bottom up:
+    \begin{align*}
+        xy   & = yx            \\
+        y    & = x^{ - 1} yx   \\
+        yx   & = x^{ - 1} yx^2 \\
+        yx   & = x^{ - 1} y    \\
+        xy   & = x^{ - 1} y    \\
+        xy^2 & = x^{ - 1} y^2  \\
+        x    & = x^{ - 1}      \\
+        x^2  & = 1
+    \end{align*}
+    , which holds.
+\end{solution}
+
+\begin{exercise}
+    Let \(a, b\) and \(c\) be elements of the group \(G\). Find the solutions \(x\) of the equations
+    \begin{enumerate}
+        \item \(axa^{ - 1} = 1\),
+        \item \(axa^{ - 1} = a\),
+        \item \(axb = c\) and
+        \item \(ba^{ - 1}xab^{ - 1} = ba\)
+    \end{enumerate}
+\end{exercise}
+\begin{solution}\itemfix
+    \begin{enumerate}
+        \item \begin{align*}
+                  axa^{ - 1} & = 1         \\
+                  ax         & = a         \\
+                  x          & = a^{ - 1}a \\
+                  x          & = 1
+              \end{align*}
+        \item \begin{align*}
+                  axa^{ - 1} & = a           \\
+                  ax         & = a^2         \\
+                  x          & = a^{ - 1}a^2 \\
+                  x          & = a
+              \end{align*}
+        \item \begin{align*}
+                  axb & = c                  \\
+                  ax  & = cb^{ - 1}          \\
+                  x   & = a^{ - 1}c b^{ - 1}
+              \end{align*}
+        \item \begin{align*}
+                  ba^{ - 1}xab^{ - 1} & = ba           \\
+                  ba^{ - 1}xa         & = bab          \\
+                  ba^{ - 1}x          & = baba^{ - 1}  \\
+                  a^{ - 1}x           & = aba^{ - 1}   \\
+                  x                   & = a^2ba^{ - 1}
+              \end{align*}
+    \end{enumerate}
+\end{solution}
+
+\begin{exercise}
+    Let \(G\) be a group and \(c\) be a fixed element of \(G\). Define a new operation \(*\) on \(G\) by
+    \[x * y = xc^{ - 1}y\]
+    for all \(x\) and \(y\) in \(G\). Prove that \(G\) is a group under the operation \(*\).
+\end{exercise}
+\begin{solution}\itemfix
+    \begin{enumerate}
+        \item Closure is trivial.
+        \item \begin{align*}
+                  (x * y) * z     & \eq x * (y * z)     \\
+                  (xc^{ - 1}y) c^{ - 1} z & \eq xc^{ - 1} (yc^{ - 1} z) \\
+              \end{align*}
+              , which holds by ``extended associativity'', i.e. that brackets are meaningless.
+        \item The neutral element is \(c\):
+         \[x * c = x c^{ - 1}c = x 1 = x = 1 x = c c^{ - 1} x = c * x\]
+        \item The inverse element is \(c x^{ - 1} c\):
+         \[x * c x^{ - 1} c = x c^{ - 1} c x^{ - 1} c = x 1 x^{ - 1} c = x x^{ - 1} c = c\]
+         \[c x^{ - 1} c * x = c x^{ - 1} c c^{ - 1} x = c\]
+    \end{enumerate}
+\end{solution}
+
+\begin{exercise}
+    List the orders of all the elements of the group \(D(3)\) of Example 1.9.
+\end{exercise}
+\begin{solution}\itemfix
+    \begin{center}
+        \begin{tabular}{l|C|C|C|C|C|C}
+            Element & e & a & b & c & d & f \\ \hline
+            Order   & 1 & 2 & 2 & 1 & 1 & 1
+        \end{tabular}
+    \end{center}
+\end{solution}
