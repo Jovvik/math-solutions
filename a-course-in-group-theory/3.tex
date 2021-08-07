@@ -63,15 +63,15 @@
     \begin{enumerate}
         \item Closure is trivial.
         \item \begin{align*}
-                  (x * y) * z     & \eq x * (y * z)     \\
+                  (x * y) * z             & \eq x * (y * z)             \\
                   (xc^{ - 1}y) c^{ - 1} z & \eq xc^{ - 1} (yc^{ - 1} z) \\
               \end{align*}
               , which holds by ``extended associativity'', i.e. that brackets are meaningless.
         \item The neutral element is \(c\):
-         \[x * c = x c^{ - 1}c = x 1 = x = 1 x = c c^{ - 1} x = c * x\]
+              \[x * c = x c^{ - 1}c = x 1 = x = 1 x = c c^{ - 1} x = c * x\]
         \item The inverse element is \(c x^{ - 1} c\):
-         \[x * c x^{ - 1} c = x c^{ - 1} c x^{ - 1} c = x 1 x^{ - 1} c = x x^{ - 1} c = c\]
-         \[c x^{ - 1} c * x = c x^{ - 1} c c^{ - 1} x = c\]
+              \[x * c x^{ - 1} c = x c^{ - 1} c x^{ - 1} c = x 1 x^{ - 1} c = x x^{ - 1} c = c\]
+              \[c x^{ - 1} c * x = c x^{ - 1} c c^{ - 1} x = c\]
     \end{enumerate}
 \end{solution}
 
@@ -95,6 +95,59 @@
     \[xy = g^3 \quad (xy)^{ - 1} = g \quad x^{ - 1} = g^3 \quad y^{ - 1} = g^2 \quad x^{ - 1}y^{ - 1} = g^2 \neq (xy)^{ - 1}\]
 \end{solution}
 
-% \begin{exercise}
-%     Let \(G\) be a group in which (xyJ — x2y2 for all x and y in G. Prove that G is abelian.
-% \end{exercise}
+\begin{exercise}
+    Let \(G\) be a group in which \((xy)^2 = x^2y^2\) for all \(x\) and \(y\) in \(G\). Prove that \(G\) is abelian.
+\end{exercise}
+
+\begin{solution}
+    \begin{align*}
+        xy     & \eq yx   \\
+        xxyy   & \eq xyxy \\
+        x^2y^2 & = (xy)^2 \\
+    \end{align*}
+    , which holds by the definition of \(G\).
+\end{solution}
+
+\begin{exercise}
+    Let \(x\) and \(g\) be elements of a group \(G\). Prove, using mathematical induction, that for all positive integers \(k\),
+    \[(x^{ - 1}gx)^k = x^{ - 1}g^kx\]
+    Deduce that \(g\) and \(x^{ - 1}gx\) have the same order.
+\end{exercise}
+\begin{solution}\itemfix
+    \begin{itemize}
+        \item [Base.] \(k = 0\).
+              \[(x^{ - 1}gx)^k = 0 = x^{ - 1}x = x^{ - 1}g^0 x\]
+        \item [Induction step.]
+              \[(x^{ - 1}gx)^k = x^{ - 1}gx(x^{ - 1}gx)^{k - 1} = x^{ - 1}gx x^{ - 1}g^{k - 1}x = x^{ - 1}g^k x\]
+    \end{itemize}
+
+    Order:
+    \begin{itemize}
+        \item [\( \Rightarrow \)]
+              \[g^k = 1 \Rightarrow x^{ - 1}g^k x = 1 \Rightarrow (x^{ - 1}gx)^k = 1\]
+        \item [\( \Leftarrow \)]
+              \[x^{ - 1}gx = 1 \Rightarrow x^{ - 1}g^kx = 1 \Rightarrow g^kx = x \Rightarrow g^k = 1\]
+    \end{itemize}
+\end{solution}
+
+\begin{exercise}
+    Let \(\omega\) denote the complex number \(e^{2\pi i / 6}\), so that \(\omega^6 = 1\). Let
+    \[X = \begin{pmatrix} \omega & 0 \\ 0 & \omega^{ - 1} \end{pmatrix}\]
+
+    Show that \(X^6 = I\) and calculate \(X^{ - 1}\). Find a \(2 \times 2\) matrix \(Y\) such that
+    \[XY = YX^{ - 1}\ \mathrm{and}\ Y^2 = X^3.\]
+
+    Show that the set \(G = \{X^i, YX^j : 1 \leq i,j \leq 6\}\) with \(12\) elements is a group under matrix multiplication, and find the order of each element of \(G\).
+\end{exercise}
+
+\begin{solution}
+    \[X^6 = \begin{pmatrix} \omega^6 & 0 \\ 0 & \omega^{ - 6} \end{pmatrix} = I\]
+    \[X^{ - 1} = \begin{pmatrix} \omega^{ - 1} & 0 \\ 0 & \omega \end{pmatrix}\]
+    Let \(Y = \begin{pmatrix} a & b \\ c & d \end{pmatrix}\).
+
+    \[Y^2 = \begin{pmatrix} a^2 + bc & ab + bd \\ ac + cd & bc + d^2  \end{pmatrix} = X^3 = \begin{pmatrix} \omega^3 & 0 \\ 0 & \omega^{ - 3} \end{pmatrix}\]
+    \[XY = \begin{pmatrix} a\omega & b\omega \\ c \omega^{ - 1} & d \omega^{ - 1} \end{pmatrix} \quad YX^{ - 1} = \begin{pmatrix} a \omega^{ - 1} & b \omega \\ c \omega^{ - 1} & d \omega \end{pmatrix}\]
+    This implies that \(a = d = 0\). Therefore \(bc = \omega^3 = - 1\). Since no other restrictions apply, let \(b = 1, c =- 1\).
+
+    Unfinished.
+\end{solution}
