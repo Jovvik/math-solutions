@@ -147,7 +147,55 @@
 
     \[Y^2 = \begin{pmatrix} a^2 + bc & ab + bd \\ ac + cd & bc + d^2  \end{pmatrix} = X^3 = \begin{pmatrix} \omega^3 & 0 \\ 0 & \omega^{ - 3} \end{pmatrix}\]
     \[XY = \begin{pmatrix} a\omega & b\omega \\ c \omega^{ - 1} & d \omega^{ - 1} \end{pmatrix} \quad YX^{ - 1} = \begin{pmatrix} a \omega^{ - 1} & b \omega \\ c \omega^{ - 1} & d \omega \end{pmatrix}\]
-    This implies that \(a = d = 0\). Therefore \(bc = \omega^3 = - 1\). Since no other restrictions apply, let \(b = 1, c =- 1\).
+    This implies that \(a = d = 0\). Therefore \(bc = \omega^3 = - 1\). Let \(c = - b^{ - 1}\).
 
-    Unfinished.
+    The following is a proof of \(G\) being a group.
+    \begin{enumerate}
+        \item \(\{X^i : 1 \leq i \leq 6\}\) is isomorphic to \(C_6\) by a map that takes the first element of the first row and an inverse map \(\omega^i \mapsto \begin{pmatrix} \omega^i & 0 \\ 0 & \omega^{ - i} \end{pmatrix}\). Closure of \(\{X^i\}\) is therefore trivial. Moreover, \(YX^j \times X^i = YX^{j + i \mod 6} \in G\). The following is the proof of two other cases.
+              \begin{align*}
+                  X^i \times YX^j & =
+                  \begin{pmatrix}
+                      \omega^i & 0             \\
+                      0        & \omega^{ - i}
+                  \end{pmatrix} \times \left(\begin{pmatrix}
+                          0         & b \\
+                          -b^{ - 1} & 0
+                      \end{pmatrix} \times \begin{pmatrix}
+                          \omega^j & 0             \\
+                          0        & \omega^{ - j}
+                      \end{pmatrix}\right) \\
+                                  & =
+                  \begin{pmatrix}
+                      \omega^i & 0             \\
+                      0        & \omega^{ - i}
+                  \end{pmatrix} \times \begin{pmatrix}
+                      0                   & b\omega^{ - j} \\
+                      - b^{ - 1} \omega^j & 0
+                  \end{pmatrix}                                                \\
+                                  & =
+                  \begin{pmatrix}
+                      0                         & b\omega^{i - j} \\
+                      - b^{ - 1} \omega^{j - i} & 0
+                  \end{pmatrix}                                                                                  \\
+                                  & = YX^{j - i \mod 6}
+              \end{align*}
+              \begin{align*}
+                  YX^i \times YX^j & =
+                  \begin{pmatrix}
+                      0                   & b\omega^{ - i} \\
+                      - b^{ - 1} \omega^i & 0
+                  \end{pmatrix} \times \begin{pmatrix}
+                      0                   & b\omega^{ - j} \\
+                      - b^{ - 1} \omega^j & 0
+                  \end{pmatrix} \\
+                                   & = \begin{pmatrix}
+                      \omega^{j - i} & 0              \\
+                      0              & \omega^{i - j}
+                  \end{pmatrix}              \\
+                                   & = X^{j - i \mod 6}
+              \end{align*}
+        \item Matrix product is associative.
+        \item The identity matrix is the identity element and is \(X^6\).
+        \item The inverse for \(X^i\) is \(X^{6 - i}\), for \(YX^i\) is \(YX^{6 - i}\), which follows from the closure proof.
+    \end{enumerate}
 \end{solution}
