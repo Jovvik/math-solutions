@@ -1,0 +1,48 @@
+\begin{exercise}
+    Which of the following sets \(H\) are subgroups of the given group \(G\)?
+    \begin{enumerate}
+        \item \(G\) is the set of integers under addition, \(H\) is the set of even integers;
+        \item \(G = S(3), H = \{1, (12), (23), (13)\}\);
+        \item \(G = GL(2, \R), H\) is the set of matrices of the form \(\begin{pmatrix} 1 & a \\ 0 & 1 \end{pmatrix}\), where \(a\) is any real number.
+    \end{enumerate}
+\end{exercise}
+
+\begin{solution}\itemfix
+    \begin{enumerate}
+        \item The identity element of \(\Z_{+}\) is \(0\), which is contained in \(H\). Moreover, even integers are closed under addition and the additive inverse of an integer is even. Therefore, all conditions of 4.2 (2) hold.
+        \item \? Didn't understand the notation. If this is cycle notation, then \(1 = (12)\), which doesn't make sense.
+        \item Let \(A_a\) denote \(\begin{pmatrix} 1 & a \\ 0 & 1 \end{pmatrix}\). \(A_a \times A_b = A_{a + b} \in H\), because reals are closed under addition. The identity element of \(G\), \(I\) is \(A_0\) and is therefore contained in \(H\). The inverse of \(A_a\) is \(A_{ - a}\), which follows from the statements above.
+    \end{enumerate}
+\end{solution}
+
+\begin{exercise}
+    Give an example of a group \(G\) with subgroups \(H\) and \(K\) such that \(H \cup K\) is not a subgroup of \(G\).
+\end{exercise}
+\begin{solution}
+    Let \(G\) be an abelian group with distinct elements \(1, k, h, hk\). Let \(H = \ev{h} = \{1, h\}, K = \ev{k} = \{1, k\}\). \(H \cup K\) does not contain \(hk\), but contains \(h\) and \(k\).
+\end{solution}
+
+\begin{exercise}
+    \(\ev{A, D} = \{I, A, D, B, E, G, C, F\}, |\ev{A, D}| = 8\)
+
+    \(\ev{A, C} = \{I, A, C, B\}\). This group is cyclic, which can be seen from its' Cayley table (see \ref{ex12})
+
+    \(\ev{B, F} = \{I, B, F, D\}\)
+    \begin{center}
+        \begin{tabular}{C|C|C|C|C}
+              & I & B & F & D \\ \hline
+            I & I & B & F & D \\
+            B & B & I & D & F \\
+            F & F & D & I & B \\
+            D & D & F & B & I \\
+        \end{tabular}
+    \end{center}
+\end{exercise}
+
+\begin{solution}
+    Consider the order of \(y\). Since \(y^4 = x^4 = 1\), it is \(\leq 4\).
+
+    If \(y^3 = 1\), \(x^2y = 1\) and therefore \(1 = xyx^{ - 1}\), which implies \(y = 1\) and \(G = C_3, C_2\) or \(C_1\).
+
+    If \(y^2 = 1, x^2 = 1\) and therefore \(G\) is the only group with \(3\) elements, \(C_3\) \textit{(or \(C_1\))}.
+\end{solution}
