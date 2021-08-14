@@ -50,23 +50,73 @@
 \begin{solution}
     Consider the order of \(y\). Since \(y^4 = x^4 = 1\), it is \(\leq 4\).
 
-    If \(y^3 = 1\), \(x^2y = 1\) and therefore \(1 = xyx^{ - 1}\), which implies \(y = 1, x^2 = 1\), which contradicts the definition.
+    If \(y^3 = 1\), \(x^2y = 1\) and therefore \(1 = xyx^{ - 1}\), which implies \(y = 1, x^2 = 1\), which contradicts the definition of \(G\).
 
-    If \(y^2 = 1, x^2 = 1\), which contradicts the definition.
+    If \(y^2 = 1, x^2 = 1\), which contradicts the definition of \(G\). From here onward, I will use the symbol ``\textreferencemark'' as a shorthand.
 
-    The only case left is \(y^4 = 1\). Clearly, \(G\) contains all 3 powers of \(x\) and \(y\).
+    This proves \(y^4 = 1\).
+
+    As per the argument given in the chapter, \(xy^i = yx^i\) for all \(i\).
+
+    Clearly, \(G\) contains all 3 powers of \(x\) and \(y\). Let's consider \(xy\).
+
+    \begin{caseof}
+        \case{\(xy = 1\)}{
+            \(y = x^{ - 1} = x^3, 1 = xy = yx^{ - 1} = x^3 x^{ - 1} = x^2\), \textreferencemark
+        }
+        \case{\(xy = x\)}{
+            \(y = 1, x = xy = yx^{ - 1} = x^{ - 1} \Rightarrow x^2 = 1\), \textreferencemark
+        }
+        \case{\(xy = x^2\)}{
+            \(y = x, x^2 = xy = yx^{ - 1} = yx^3 = x^4 = 1\), \textreferencemark
+        }
+        \case{\(xy = x^3\)}{
+            \(y = x^2 = y^2 \Rightarrow y = 1\), see case 2. % `\ref` doesn't work in `caseof'
+        }
+        \case{\(xy = y\)}{
+            \(x = 1\), \textreferencemark
+        }
+        \case{\(xy = y^3\)}{
+            \(x = y^2 = x^2 \Rightarrow x = 1\), \textreferencemark
+        }
+    \end{caseof}
+
+    This proves that \(xy\) is in fact a distinct element of \(G\). Let's consider \(xy^3\) now.
+
+    \begin{caseof}
+        \case{\(xy^3 = 1\)}{
+            \(1 = xy^3 = yx \Rightarrow y = x^{ - 1} = x^3, 1 = xy^3 = x x^9 = x^2\), \textreferencemark
+        }
+        \case{\(xy^3 = x\)}{
+            \(y^3 = 1 \Rightarrow x^2y = 1 \Rightarrow 1 = xyx^{ - 1} \Rightarrow y = 1 \Rightarrow x^2 = 1\), \textreferencemark
+        }
+        \case{\(xy^3 = x^2\)}{
+            \(x^3y = x^2 \Rightarrow xy = x\), see case 2 for \(xy\).
+        }
+        \case{\(xy = x^3\)}{
+            \(y = x^2, y^2 = x^2 \Rightarrow y = 1\), see case 2 for \(xy\)
+        }
+        \case{\(xy = y\)}{
+            \(x = 1\), \textreferencemark
+        }
+        \case{\(xy = y^3\)}{
+            \(x = y^2, x^2 = y^2 \Rightarrow x = 1\), \textreferencemark
+        }
+    \end{caseof}
+
+    This proves that \(xy^3\) is a distinct element of \(G\). The following Cayley table proves closure:
 
     \begin{center}
         \begin{tabular}{C|C|C|C|C|C|C|C|C}
-                 & 1    & x   & x^2 & x^3 & y  & y^3  & xy   & x^2y \\ \hline
-            1    & 1    & x   & x^2 & x^3 & y  & y^3  & xy   & x^2y \\
-            x    & x    & x^2 & x^3 & 1   & xy & xy^3 & x^2y & x^3y \\
-            x^2  & x^2  &                                           \\
-            x^3  & x^3  &                                           \\
-            y    & y    &                                           \\
-            y^3  & y^3  &                                           \\
-            xy   & xy   &                                           \\
-            x^2y & x^2y &                                           \\
+                 & 1    & x    & x^2  & x^3  & y    & y^3  & xy   & xy^3 \\ \hline
+            1    & 1    & x    & x^2  & x^3  & y    & y^3  & xy   & xy^3 \\
+            x    & x    & x^2  & x^3  & 1    & xy   & xy^3 & y^3  & y    \\
+            x^2  & x^2  & x^3  & 1    & x    & y^3  & y    & xy^3 & xy   \\
+            x^3  & x^3  & 1    & x    & x^2  & xy^3 & xy   & y    & y^3  \\
+            y    & y    & xy^3 & xy   & y    & x^2  & 1    & x^3  & x    \\
+            y^3  & y^3  & xy   & y    & xy^3 & 1    & x^2  & x    & x^3  \\
+            xy   & xy   & y    & xy^3 & y^3  & x^3  & x    & x^2  & 1    \\
+            xy^3 & xy^3 & y^3  & xy   & y    & x    & x^3  & 1    & x^2  \\
         \end{tabular}
     \end{center}
 \end{solution}

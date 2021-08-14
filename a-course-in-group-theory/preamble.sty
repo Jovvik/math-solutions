@@ -152,3 +152,7 @@
 }
 
 \allowdisplaybreaks
+
+\newcounter{casenum}
+\newenvironment{caseof}{\setcounter{casenum}{1}}{\vskip.5\baselineskip}
+\newcommand{\case}[2]{\vskip.5\baselineskip\par\noindent {\bfseries Case \arabic{casenum}:} #1\\#2\addtocounter{casenum}{1}}
