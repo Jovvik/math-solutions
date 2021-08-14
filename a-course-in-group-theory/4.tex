@@ -10,7 +10,7 @@
 \begin{solution}\itemfix
     \begin{enumerate}
         \item The identity element of \(\Z_{+}\) is \(0\), which is contained in \(H\). Moreover, even integers are closed under addition and the additive inverse of an integer is even. Therefore, all conditions of 4.2 (2) hold.
-        \item \? Didn't understand the notation. If this is cycle notation, then \(1 = (12)\), which doesn't make sense.
+        \item No, \((12)(23) \notin G\).
         \item Let \(A_a\) denote \(\begin{pmatrix} 1 & a \\ 0 & 1 \end{pmatrix}\). \(A_a \times A_b = A_{a + b} \in H\), because reals are closed under addition. The identity element of \(G\), \(I\) is \(A_0\) and is therefore contained in \(H\). The inverse of \(A_a\) is \(A_{ - a}\), which follows from the statements above.
     \end{enumerate}
 \end{solution}
@@ -23,6 +23,9 @@
 \end{solution}
 
 \begin{exercise}
+    Let \(G\) be the group in Question 2 of Exercises 1. Find the number of elements in \(\ev{A, D}\). Is \(\ev{A, C}\) cyclic? Write down the multiplication table for \(\ev{B, F}\).
+\end{exercise}
+\begin{solution}
     \(\ev{A, D} = \{I, A, D, B, E, G, C, F\}, |\ev{A, D}| = 8\)
 
     \(\ev{A, C} = \{I, A, C, B\}\). This group is cyclic, which can be seen from its' Cayley table (see \ref{ex12})
@@ -37,12 +40,33 @@
             D & D & F & B & I \\
         \end{tabular}
     \end{center}
-\end{exercise}
+\end{solution}
 
+\begin{exercise}
+    Let \(G\) be the group with presentation
+    \(\{x,y : x^4 = 1, x^2 = y^2, xy = yx^{ - 1}\}\).
+    Decide how many elements are in \(G\) and determine its multiplication table.
+\end{exercise}
 \begin{solution}
     Consider the order of \(y\). Since \(y^4 = x^4 = 1\), it is \(\leq 4\).
 
-    If \(y^3 = 1\), \(x^2y = 1\) and therefore \(1 = xyx^{ - 1}\), which implies \(y = 1\) and \(G = C_3, C_2\) or \(C_1\).
+    If \(y^3 = 1\), \(x^2y = 1\) and therefore \(1 = xyx^{ - 1}\), which implies \(y = 1, x^2 = 1\), which contradicts the definition.
 
-    If \(y^2 = 1, x^2 = 1\) and therefore \(G\) is the only group with \(3\) elements, \(C_3\) \textit{(or \(C_1\))}.
+    If \(y^2 = 1, x^2 = 1\), which contradicts the definition.
+
+    The only case left is \(y^4 = 1\). Clearly, \(G\) contains all 3 powers of \(x\) and \(y\).
+
+    \begin{center}
+        \begin{tabular}{C|C|C|C|C|C|C|C|C}
+                 & 1    & x   & x^2 & x^3 & y  & y^3  & xy   & x^2y \\ \hline
+            1    & 1    & x   & x^2 & x^3 & y  & y^3  & xy   & x^2y \\
+            x    & x    & x^2 & x^3 & 1   & xy & xy^3 & x^2y & x^3y \\
+            x^2  & x^2  &                                           \\
+            x^3  & x^3  &                                           \\
+            y    & y    &                                           \\
+            y^3  & y^3  &                                           \\
+            xy   & xy   &                                           \\
+            x^2y & x^2y &                                           \\
+        \end{tabular}
+    \end{center}
 \end{solution}
