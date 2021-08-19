@@ -1,0 +1,72 @@
+\begin{exercise}
+    Let \(G\) be the group of Question 2 in Exercises 1. Write down:
+    \begin{enumerate}
+        \item the list of left cosets of the subgroup \(\ev{A}\) in \(G\);
+        \item the list of left cosets of the subgroup \(\ev{B, F}\) in \(G\); and
+        \item the list of left cosets and the right cosets for the subgroup \(\{I, D\}\).
+    \end{enumerate}
+\end{exercise}
+
+\begin{solution}\itemfix
+    \begin{enumerate}
+        \item \(\ev{A} = \{I, A, B, C\}\). The number of distinct left cosets of \(\ev{A}\) is\footnote{By Lagrange's theorem.} \(|G| / |\ev{A}| = 2\), so finding only two distinct left cosets suffices.
+              \[I\ev{A} = \ev{A} \quad D\ev{A} = \{I, D, G, F, E\}\]
+        \item \(\ev{B, F} = \{I, B, F, D\}\), \(|G| / |\ev{B, F}| = 2\).
+              \[I\ev{B, F} = \ev{B, F} \quad A\ev{B, F} = \{A, C, E, G\}\]
+        \item \(|G| / |\{I, D\}| = 4\). Left cosets:
+              \[I\{I, D\} = \{I, D\} \quad A\{I, D\} = \{A, E\} \quad B\{I, D\} = \{B, F\} \quad C\{I, D\} = \{C, G\}\]
+              Right cosets:
+              \[\{I, D\}I = \{I, D\} \quad \{I, D\}A = \{A, G\} \quad \{I, D\}B = \{B, F\} \quad \{I, D\}C = \{C, E\}\]
+    \end{enumerate}
+\end{solution}
+
+\begin{exercise}
+    Show that if the left coset \(gH\) is a subgroup of \(G\), then \(g\) is in \(H\).
+\end{exercise}
+\begin{solution}
+    All cosets are either equal or disjoint. Let us consider the two cosets \(gH\) and \(1H\).
+    \begin{caseof}
+        \case{\(gH = 1H\)}{
+            Then \(\forall h \in H \ \ gh \in 1H = H\). Let \(h = 1\), then \(g 1 = g \in H\)
+        }
+        \case{\(gH \cap 1H = \emptyset\)}{
+            Since both \(gH\) and \(H\) are subgroups of the same group, they contain the same identity element, which contradicts the disjointness of \(gH\) and \(H\).
+        }
+    \end{caseof}
+\end{solution}
+
+\begin{exercise}
+    Show that if an element \(y\) of a group \(G\) is in the right coset \(Hx\) then \(Hy = Hx\).
+\end{exercise}
+\begin{solution}
+    \[y \in Hx \Rightarrow \exists \tilde{h} \in H : y = \tilde{h}x\]
+    We need to prove that \(Hy = Hx\), that is \(H \tilde{h}x = Hx\), which is trivial since \(H \tilde{h} = H\) by closure of \(H\).
+\end{solution}
+
+\begin{exercise}
+    Show that two right cosets \(Hx, Hy\) of a subgroup \(H\) in a group \(G\) are equal if and only if \(yx^{ - 1}\) is an element of \(H\).
+\end{exercise}
+\begin{solution}\itemfix
+    \begin{itemize}
+        \item [\(\Rightarrow\)]
+              \[\forall h_1 \in H \ \ \exists h_2 \in H : h_1 y = h_2 x \Rightarrow h_1 yx^{ - 1} = h_2\]
+              That is, \(Hyx^{ - 1} = H\), which holds due to the previous exercise.
+        \item [\(\Leftarrow\)] \(yx^{ - 1} \in H \Rightarrow H = Hyx^{ - 1}\) by closure of \(H\).
+    \end{itemize}
+\end{solution}
+
+\begin{exercise}
+    Give an example of a group \(G\) with subgroups \(A\) and \(B\) such that \(AB\) is not a subgroup of \(G\).
+\end{exercise}
+\begin{solution}
+    \(G = D(3)\) with the element names from chapter 1. \(A = \ev{d} = \{e, d\}, B = \ev{b} = \{e, a, b\}. AB = \{e, d, f, c\}\), which is not a subgroup of \(G\), since it doesn't contain \(dc = b\).
+\end{solution}
+
+\begin{exercise}
+    Let \(p\) be a prime number and \(G\) be a group with \(p^a k\) elements, where \(a\) is a positive integer and \(p\) does not divide \(k\). Suppose that \(P\) is a subgroup of \(G\) with \(p^a\) elements and \(Q\) is a subgroup of \(G\) with \(p^b\) elements, where \(0 < b < a\). If \(Q\) is not a subgroup of \(P\), show that \(PQ\) is not a subgroup of \(G\).
+\end{exercise}
+\begin{solution}
+    Let \(x = |P \cap Q|\). Since \(Q\) is a subgroup of \(P\), \(x > 0\) and \(x < |Q| = p^b\) because \(P \neq Q\). By proposition 5.18:
+    \[|PQ| = \frac{|P||Q|}{|P \cap Q|} = \frac{p^a p^b}{x} = \frac{p^{a + b}}{x}\]
+    Since \(x < p^b\), \(x\) divides \(p\) at most \(p^{b - 1}\) times and therefore \(|PQ|\) divides \(p\) at least \(p^{a + 1}\) times, therefore it does not divide \(|G|\), which implies that \(PQ\) is not a subgroup of \(G\).
+\end{solution}
