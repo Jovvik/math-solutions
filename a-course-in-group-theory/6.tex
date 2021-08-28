@@ -1,0 +1,128 @@
+\begin{exercise}
+    For any element \(x\) in \(\mathbb{Z}_2\), let \(\overline x\) denote \(1 + x\), so that \(\overline{x}\) is \(0\) when \(x\) is \(1\) and \(\overline{x}\) is \(1\) when \(x\) is zero. Let \(C\) be the set of elements of \(V(6, 2)\) of the form \(xyz \overline{x} \overline{y} \overline{z}\). Write down the eight elements of \(C\), and show that \(C\) is not a linear code. What is the minimum distance of \(C\)?
+\end{exercise}
+\begin{solution}
+    The elements are \(000111, 001110, 010101, 011100, 100011, 101010, 110001, 111000\).
+
+    \(C\) is not a linear code because it does not contain \(000000\), the neutral element of \(V(6, 2)\).
+
+    The minimum distance of \(C\) cannot be \(1\) because if \(y_1 \neq y_2\), then \(\overline{y_1} \neq \overline{y_2}\) and \[\rho(x_1y_1z_1 \overline{x_1} \overline{y_1} \overline{z_1}, x_2y_2z_2 \overline{x_2} \overline{y_2} \overline{z_2}) \geq 2\], same for \(x_1\) and \(z_1\).
+\end{solution}
+
+\begin{exercise}
+    In each of the following cases, say how many errors the code with the given generator matrix \(G\) detects and how many errors the code corrects:
+    \begin{enumerate}
+        \item the code over \(\mathbb{Z}_2\) with \(G = \begin{pmatrix}
+                  1 & 0 & 0 & 0 & 1 \\
+                  0 & 1 & 0 & 1 & 0 \\
+                  0 & 0 & 1 & 1 & 1
+              \end{pmatrix}\)
+        \item the code over \(\mathbb{Z}_3\) with \(G = \begin{pmatrix}
+                  1 & 0 & 1 & 1 \\
+                  0 & 1 & 1 & 2
+              \end{pmatrix}\)
+        \item the code over \(\mathbb{Z}_5\) with \(G = \begin{pmatrix}
+                  1 & 0 & 0 & 2 & 1 \\
+                  0 & 1 & 0 & 1 & 3 \\
+                  0 & 0 & 1 & 4 & 1
+              \end{pmatrix}\)
+    \end{enumerate}
+\end{exercise}
+\begin{solution}\itemfix
+    \begin{enumerate}
+        \item All codewords are \(\{00000, 00111, 01010, 10001, 001101, 10110, 11011, 11100\}\). The minimum weight of a codeword is \(2\), therefore the code detects one error and corrects none.
+        \item All codewords are \(\{0000, 0112, 1011, 1120, 2022, 0221, 2101, 1202, 2210\}\). The minimum weight of a codeword is \(3\), therefore the code detects two errors and corrects one.
+        \item All codewords are of form \(\begin{pmatrix} n & m & k & 2n + m + 4k & n + 3m + k \end{pmatrix}\). \(21000\) is such a codeword with weight of \(3\). Exhaustive shows it is the minimum weight, therefore the code detects two errors and corrects one.
+    \end{enumerate}
+\end{solution}
+
+\begin{exercise}
+    Let \(C\) be a linear code over \(\mathbb{Z}_2\). Let \(C^+\) be the subset of \(C\) consisting of those elements of \(C\) with even weight. Show that \(C^+\) is an (additive) subgroup of \(C\). By considering the cosets of the subgroup \(C^+\) in \(C\), show that either \(C^+ = C\) or \(C^+\) contains half the elements of \(C\).
+\end{exercise}
+\begin{solution}\itemfix
+    \begin{enumerate}
+        \item \(C^+\) is a subgroup:
+
+              Closure is trivial by induction; the neutral element \(0 \dots 0\) has weight \(0\), which is even and therefore the neutral element is in \(C^+\); the additive inverse of \(x\) is \(x\) itself, and addition is clearly associative.
+
+        \item Consider \(xC^+\).
+              \begin{caseof}
+                  \case{\(|x| \equiv 0 \mod 2\)}{
+                      \(x\) is in \(C^+\) and therefore \(xC^+\) is \(C^+\) by closure.
+                  }
+                  \case{\(|x| \equiv 1 \mod 2\)}{
+                      \(x\) is not in \(C^+\) and \(xC^+\) contains precisely all elements of \(C\) with odd weight, since for any \(y\) of odd weight \(y = x + z\), where \(z = y - x\), which is of even weight and is therefore in \(C^+\).
+                  }
+              \end{caseof}
+
+              If \(C\) has at least one element of odd weight, then the number of distinct left cosets is \(2\); \(1\) otherwise. Therefore \(|C|/|C^+|\) is either \(1\) or \(2\), the claim follows.
+    \end{enumerate}
+\end{solution}
+
+\begin{exercise}
+    Construct a complete coset decoding table for the code in Question 2(b) above.
+\end{exercise}
+\begin{solution}\itemfix
+    \begin{center}
+        \begin{tabular}{C|C|C|C|C|C|C|C|C}
+            0000 & 0112 & 1011 & 1120 & 2022 & 0221 & 2101 & 1202 & 2210 \\ \hline
+            0001 & 0110 & 1012 & 1121 & 2020 & 0222 & 2102 & 1200 & 2211 \\
+            0010 & 0122 & 1021 & 1100 & 2002 & 0201 & 2111 & 1212 & 2220 \\
+            0100 & 0212 & 1111 & 1220 & 2022 & 0021 & 2201 & 1002 & 2010 \\
+            1000 & 1112 & 2011 & 2120 & 2022 & 1221 & 0101 & 2202 & 0210 \\
+            0011 & 0120 & 1022 & 1101 & 2000 & 0202 & 2112 & 1210 & 2221 \\
+            1001 & 1110 & 2012 & 2121 & 2022 & 1222 & 0102 & 2200 & 0211 \\
+            1010 & 1122 & 2021 & 2100 & 0002 & 1201 & 0111 & 1212 & 0220 \\
+        \end{tabular}
+    \end{center}
+\end{solution}
+
+\begin{exercise}
+    Calculate the parity check matrix for the code over \(\mathbb{Z}_2\) with generator matrix
+    \[\begin{pmatrix}
+            1 & 0 & 0 & 1 & 1 & 0 & 1 \\
+            0 & 1 & 0 & 1 & 1 & 1 & 0 \\
+            0 & 0 & 1 & 1 & 0 & 1 & 1
+        \end{pmatrix}\]
+    and use it to construct the two-column decoding table. Decode the following:
+    \[1100011 \quad 1011000 \quad 0101110 \quad 0110001 \quad 1010110\]
+\end{exercise}
+\begin{solution}
+    \[P = \begin{pmatrix}
+            1 & 1 & 1 & 1 & 0 & 0 & 0 \\
+            1 & 1 & 0 & 0 & 1 & 0 & 0 \\
+            0 & 1 & 1 & 0 & 0 & 1 & 0 \\
+            1 & 0 & 1 & 0 & 0 & 0 & 1 \\
+        \end{pmatrix} \]
+    \begin{center}
+        \begin{tabular}{C|C}
+            \text{coset representative} & \text{syndrome} \\ \hline
+            0000000                     & 0000            \\
+            0000001                     & 0001            \\
+            0000010                     & 0010            \\
+            0000100                     & 0100            \\
+            0001000                     & 1000            \\
+            0010000                     & 1011            \\
+            0100000                     & 1110            \\
+            1000000                     & 1101            \\
+            0000011                     & 0011            \\
+            0000101                     & 0101            \\
+            0000110                     & 0110            \\
+            0001001                     & 1001            \\
+            0001010                     & 1010            \\
+            0001100                     & 1100            \\
+            1000010                     & 1111            \\
+            0000111                     & 0111
+        \end{tabular}
+    \end{center}
+    \begin{center}
+        \begin{tabular}{C|C|C}
+            \text{vector} & \text{syndrome} & \text{decoded} \\ \hline
+            1100011       & 0000            & 1100011        \\
+            1011000       & 1110            & 1111000        \\
+            0101110       & 0000            & 0101110        \\
+            0110001       & 0100            & 0110101        \\
+            1010110       & 0000            & 1010110
+        \end{tabular}
+    \end{center}
+\end{solution}
