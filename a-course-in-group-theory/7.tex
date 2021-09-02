@@ -1,0 +1,106 @@
+\begin{exercise}
+    Let \(H\) be any subgroup of a group \(G\) and let \(g\) be any element of \(G\). Prove that \(gHg^{ - 1}\) is a subgroup of \(G\).
+\end{exercise}
+\begin{solution}\itemfix
+    \begin{enumerate}
+        \item \(1 = gg^{ - 1} = g 1g^{ - 1} \in gHg^{ - 1}\)
+        \item \(gh_1g^{ - 1}gh_2g^{ - 1} = gh_1h_2g^{ - 1} \in gHg^{ - 1}\), because \(h_1h_2 \in H\) by closure.
+        \item \((ghg^{ - 1})^{ - 1} = gh^{ - 1}g^{ - 1} \in gHg^{ - 1}\)
+    \end{enumerate}
+\end{solution}
+
+\begin{exercise}
+    List all the subgroups of the dihedral group \(D(3)\), and determine which of these are normal.
+\end{exercise}
+\begin{solution}\itemfix
+    \begin{itemize}
+        \item \(\emptyset\)
+        \item \(D(3)\)
+        \item \(\ev{a} = \{\varepsilon, a, b\} = \ev{b} = \ev{a, b}\)
+        \item \(\ev{c} = \{e, c\}\)
+        \item \(\ev{d} = \{\varepsilon, d\}\)
+        \item \(\ev{f} = \{\varepsilon, f\}\)
+        \item \(\ev{d, f} = \{\varepsilon, d, f, a, b, c\} = D(3)\)
+    \end{itemize}
+    So all in all: \(\emptyset, D(3), \{\varepsilon, a, b\}, \{\varepsilon, c\}, \{\varepsilon, d\}, \{\varepsilon, f\}\).
+
+    \begin{itemize}
+        \item \(\emptyset\) is normal vacuously
+        \item \(D(3)\) is normal by closure
+        \item \(aca^{ - 1} = fb = d \notin \ev{c}\)
+        \item \(ada^{ - 1} = c b = f \notin \ev{d}\)
+        \item \(afa^{ - 1} = db = c \notin \ev{f}\)
+        \item \(c \{\varepsilon, a, b\} c^{ - 1} = \{c, d, f\} c = \{e, a, b\}\)
+        \item \(d \{\varepsilon, a, b\} d^{ - 1} = \{d, f, c\} d = \{e, b, a\}\)
+        \item \(f \{\varepsilon, a, b\} f^{ - 1} = \{f, c, d\} f = \{e, a, b\}\)
+        \item therefore \(\{\varepsilon, a, b\}\) is normal.
+    \end{itemize}
+\end{solution}
+
+\begin{exercise}
+    Let \(G\) be the group \(Q\) discussed during the classification of groups of order eight in Chapter 5. Let \(N\) be the subset \(\{1, x^2\}\). Show that \(N\) is a subgroup of \(G\). By listing cosets, show that \(N\) is a normal subgroup of \(G\), and determine the multiplication table for \(G/N\).
+\end{exercise}
+\begin{solution}
+    The following Cayley table proves that \(N\) is a subgroup of \(G\):
+    \begin{center}
+        \begin{tabular}{C|C|C}
+                & 1   & x^2 \\ \hline
+            1   & 1   & x^2 \\
+            x^2 & x^2 & 1   \\
+        \end{tabular}
+    \end{center}
+
+    \begin{itemize}
+        \item \(1N = N = x^2N = N 1 = Nx^2\)
+        \item \(xN = \{x, x^3\} = x^3N = Nx = Nx^3\)
+        \item \(yN = \{y, y^3\} = y^3N = Ny = Ny^3\)
+        \item \(xyN = \{xy, xy^3\} = xy^3N = Nxy = Nxy^3\)
+    \end{itemize}
+
+    \begin{center}
+        \begin{tabular}{C|C|C|C|C}
+                & N   & xN  & yN  & xyN \\ \hline
+            N   & N   & xN  & yN  & xyN \\
+            xN  & xN  & N   & xyN & yN  \\
+            yN  & yN  & xyN & N   & xN  \\
+            xyN & xyN & yN  & xN  & N   \\
+        \end{tabular}
+    \end{center}
+\end{solution}
+
+\begin{exercise}
+    Let \(G\) be the dihedral group \(D(4)\):
+    \[G = \ev{b, a : b^2 = 1 = a^4, ab = ba^{ - 1}},\]
+    and \(H\) be the subset \(\{1, b\}\). Prove that \(H\) is not a normal subgroup of \(G\). Show that multiplication of the left cosets of \(H\) in \(G\) is not well-defined: there are elements \(x,y,u\) and \(v\) with \(xH = uH, yH = vH\), but \(xyH \neq uvH\).
+\end{exercise}
+\begin{solution}
+    \(ab b (ab)^{ - 1} = ab b b^{ - 1}a^{ - 1} = aba^{ - 1} = a^2b \notin H\)
+
+    \begin{itemize}
+        \item \(bH = H\)
+        \item \(abH = aH = \{a, ab\}\)
+        \item \(a^2bH = a^2H = \{a^2, a^2b\}\)
+        \item \(a^3bH = a^3H = \{a^3, a^3b\}\)
+    \end{itemize}
+
+    \(x = a^2b, u = a^2, y = ab, v = a\):
+    \[a^2babH = a^2bba^{ - 1}H = aH \neq a^3H = a^2aH\]
+\end{solution}
+
+\begin{exercise}
+    For any group \(G\), define the \textit{centre} of \(G\) to be the set of all elements \(z\) which commute with every element \(g\) of \(G\):
+    \[Z(G) = \{z \in G \mid zg = gz\ \mathrm{for\ all}\ g\ \mathrm{in}\ G\}.\]
+    Prove that \(Z(G)\) is a normal abelian subgroup of \(G\) and determine the list of elements in \(Z(G)\) when \(G\) is \(D(3)\) and also when \(G\) is \(D(4)\).
+\end{exercise}
+\begin{solution}
+    \(Z(G)\) is a subgroup of \(G\):
+    \begin{enumerate}
+        \item \(1\) commutes with every element of \(G\), hence \(1 \in Z(G)\)
+        \item \(gz_1z_2 = z_1gz_2 = z_1z_2g\), therefore \(z_1z_2 \in Z(G)\)
+        \item \(gz = zg \Rightarrow z^{ - 1}gz = z^{ - 1} zg \Rightarrow z^{ - 1}gz = g \Rightarrow z^{ - 1} g = gz^{ - 1}\)
+    \end{enumerate}
+
+    \(Z(G)\) is abelian by definition.
+
+    \(gzg^{ - 1} = zg g^{ - 1} = z \in Z(G)\), hence \(Z(G)\) is normal in \(G\).
+\end{solution}
