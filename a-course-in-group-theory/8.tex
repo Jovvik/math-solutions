@@ -1,0 +1,89 @@
+\begin{exercise}
+    Let \(\phi : G \to H\) be a homomorphism. Show that \(\phi\) is injective if and only if \(\ker \phi = \{1\}\).
+\end{exercise}
+\begin{solution}\itemfix
+    \begin{itemize}
+        \item [``\(\Rightarrow\)''] Assume \(\ker \phi \neq \{1\}\). \(1 \in \ker \phi\), therefore \(\ker \phi\) contains some \(a \neq 1\). By the definition of an injective function, \(1 = \phi(1) = \phi(a) = 1 \Rightarrow 1 = a\), which does not hold --- a contradiction.
+        \item [``\(\Leftarrow\)''] Assume \(\phi\) is not injective, that is \(\exists a, b : \phi(a) = \phi(b)\) and \(a \neq b\). \(\phi(a)\phi(b)^{ - 1} = 1 \Rightarrow \phi(ab^{ - 1}) = 1\), but \(ab^{ - 1} \neq 1\) because otherwise \(b^{ - 1} = a^{ - 1}\), which contradicts with \(a \neq b\). So \(ab^{ - 1} \neq 1\), but maps to \(1\) under \(\phi\), which contradicts with \(\ker \phi = \{1\}\).
+    \end{itemize}
+\end{solution}
+
+\begin{exercise}
+    Let \(G\) be the dihedral group \(D(3)\). Define a map \(\vartheta : G \to \{1, - 1\}\) by \(\vartheta(g) = 1\) if \(g\) is a rotation, and \(\vartheta(g) = - 1\) if \(g\) is a reflection. Prove that \(\vartheta\) is a homomorphism, and calculate its kernel and image.
+\end{exercise}
+\begin{solution}
+    Let \(a\) be a rotation, \(b\) be a reflection.
+    \begin{center}
+        \begin{tabular}{C|C|C|C|C}
+            x & y & xy & \vartheta(xy) & \vartheta(x)\cdot\vartheta(y) \\ \hline
+            a & a & a  & 1             & 1                             \\
+            a & b & b  & -1            & -1                            \\
+            b & a & b  & -1            & -1                            \\
+            b & b & a  & 1             & 1                             \\
+        \end{tabular}
+    \end{center}
+
+    Therefore \(\vartheta\) is a homomorphism \(D(3) \to \R^\times\).
+
+    \[\ker \vartheta = \{e, a, b\}\]
+    \[\im \vartheta = \{1, - 1\}\]
+\end{solution}
+
+\begin{exercise}
+    Suppose that \(H\) is an abelian group and let \(\vartheta : G \to H\) be a homomorphism. Define a map \(\phi : G \times G \to H\) by
+    \[\phi(g_1, g_2) =\!\footnotemark\ \vartheta(g_1)\vartheta(g_2)^{ - 1}\]
+    \footnotetext{In the book on the right hand side \(\vartheta\) is replaced with \(\phi\), which I assume is a typo.}
+    Prove that \(\phi\) is a homomorphism. List the elements in \(\ker \vartheta\) when \(G\) is the dihedral group \(D(3)\) and \(\vartheta : G \to \{1, - 1\}\) is the map of Question 2 above.
+\end{exercise}
+\begin{solution}
+    \begin{align*}
+        \phi(g_1g_2, g_3g_4) & = \vartheta(g_1g_2)\vartheta(g_3g_4)^{ - 1}                                    \\
+                             & = \vartheta(g_1)\vartheta(g_2)\vartheta(g_4^{ - 1}g_3^{ - 1})                  \\
+                             & = (\vartheta(g_1) \vartheta(g_3)^{ - 1})(\vartheta(g_2) \vartheta(g_4)^{ - 1}) \\
+                             & = \phi(g_1, g_3) \phi(g_2, g_4)
+    \end{align*}
+
+    Therefore \(\phi\) is a homomorphism.
+
+    Consider all \((g_1, g_2) \in \ker \phi\)
+    \begin{align*}
+        1              & = \vartheta(g_1) \vartheta(g_2)^{ - 1} \\
+        \vartheta(g_2) & = \vartheta(g_1)                       \\
+    \end{align*}
+    Therefore \(\ker \phi\) is precisely the set of all \((g_1, g_2)\) such that their kind \textit{(rotation or reflection)} is equal:
+    \[\ker \phi = \{e, a, b\}^2 \cup \{c, d, f\}^2\]
+\end{solution}
+
+\begin{exercise}
+    Let \(\phi : G \to H\) be a homomorphism. Prove by induction that, for all positive integers \(k\), and for all \(g\) in \(G\), \(\phi(g^k) = \phi(g)^k\). Deduce that if \(g\) has finite order \(k\), then the order of \(\phi(g)\) divides \(k\), and that if also \(\phi\) is injective, then the order of \(\phi(g)\) is equal to \(k\).
+\end{exercise}
+\begin{solution}\itemfix
+    \begin{itemize}
+        \item [\textbf{Base.}] \(k = 1\) is trivial: \(\phi(g) = \phi(g)\) holds.
+        \item [\textbf{Step.}] \(\phi(g^k) = \phi(g^{k - 1}g) = \phi(g)^{k - 1}\phi(g) = \phi(g)^k\)
+    \end{itemize}
+\end{solution}
+
+\begin{exercise}
+    Determine the elements of \(\mathrm{Aut}(G)\) when \(G\) is the cyclic group \(C_3\) consisting of the three complex cube roots of unity, namely \(1, \omega\) and \(\omega^2\), where \(\omega = e^{2\pi i / 3}\). Write down the multiplication table for \(\mathrm{Aut}(G)\).
+\end{exercise}
+\begin{solution}
+    Consider \(A : C_3 \to C_3\). \(A(1) = 1\) because otherwise \(A(1) \cdot A(1) \neq A(1 \cdot 1) = 1\) \textit{(it is either \(\omega^2\) or \(\omega\))}. If \(A(\omega) = \omega\), then \(A = \mathrm{id}\), otherwise \(A(\omega) = \omega^2\) and \(A \in \mathrm{Aut}(G)\), which is proved already.
+    \begin{center}
+        \begin{tabular}{C|C|C}
+                                       & \mathrm{id}                & \begin{pmatrix}
+                2 & 3
+            \end{pmatrix} \\ \hline
+            \mathrm{id}                & \mathrm{id}                & \begin{pmatrix}
+                2 & 3
+            \end{pmatrix} \\
+            \begin{pmatrix}
+                2 & 3
+            \end{pmatrix} & \begin{pmatrix}
+                2 & 3
+            \end{pmatrix} & \mathrm{id}
+        \end{tabular}
+    \end{center}
+
+    In other words, \(\mathrm{Aut}(G) = C_2\).
+\end{solution}
