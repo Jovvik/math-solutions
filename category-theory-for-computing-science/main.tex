@@ -48,4 +48,21 @@ Skipped due to triviality.
     \item \(\texttt{nonzero}: \texttt{NAT} \to \texttt{BOOLEAN}\), subject to equations \(\texttt{nonzero} \circ \texttt{succ} = \texttt{false}\) and \(\texttt{nonzero} \circ \texttt{succ} = \texttt{true}\).
 \end{enumerate}
 
+\subsection{Mathematical structures as categories}
+
+\begin{enumerate}
+    \item For which sets \(A\) is \(F(A)\) a commutative monoid?
+          \begin{solution}
+              \(F(A)\) is always a monoid, so the only property to check is commutativity. If \(A = \{\}\), then \(F(A) = \{\}\) and is vacuously commutative. If \(A = \{a\}\), then \(F(A) = \{(), (a), (a, a), \dots\}\) and is commutative. Otherwise, if \(A\) has at least two elements, \(a\) and \(b\), \((a)(b) = (a, b)\), but \((b)(a) = (b, a) \neq (a, b)\), therefore it is not commutative. All in all, \(|A| \leq 1 \Leftrightarrow F(A)\) is commutative.
+          \end{solution}
+    \item Prove that for each object \(A\) in a category \(\mathcal{C}\), \(\hom(A, A)\) is a monoid with composition of arrows as the operation.
+          \begin{solution}
+              Take \(\id_A\) as the identity element. Then \(\id_A \circ f = f \circ \id_A = f\) by definition of \(\id\). \(\hom(A, A)\) is closed under composition.
+          \end{solution}
+    \item Prove that a semigroup has at most one identity element.
+          \begin{solution}
+              Let \(e_1, e_2\) be identity elements. Then \(e_2 = e_1 e_2 = e_1\), so the identity elements are equal. This is very similar to exercise 2.1.4.
+          \end{solution}
+\end{enumerate}
+
 \end{document}
