@@ -80,5 +80,76 @@ Skipped due to triviality.
 
 \subsection{Categories of sets with structure}
 
+\begin{exercise}
+    Let \((S, \alpha)\) and \((T, \beta)\) be sets with relations on them. A \textbf{homomorphism} from \((S, \alpha)\) to \((T, \beta)\) is a function \(f : S \to T\) with the property that if \(x \alpha y\) in \(S\) then \(f(x) \beta f(y)\) in \(T\).
+    \begin{enumerate}
+        \item Show that sets with relations and homomorphisms between them form a category.
+        \item Show that if \((S, \alpha)\) and \((T, \beta)\) are both posets, then \(f : S \to T\) is a homomorphism of relations if and only if it is a monotone map.
+    \end{enumerate}
+\end{exercise}
+\begin{solution}\itemfix
+    \begin{enumerate}
+        \item Take the identity map as \(\id_A\). It is obviously a homomorphism. \(\id_A \circ f = f \circ \id_A = f\) holds. Transitivity also holds:
+              \[x \alpha y \Rightarrow f(x) \beta f(y) \Rightarrow g(f(x)) \gamma g(f(y))\]
+        \item By definition.
+    \end{enumerate}
+\end{solution}
+
+\begin{exercise}
+    Show that (strict) \(\omega\)-complete partial orders and (strict) continuous functions form a category.
+\end{exercise}
+\begin{solution}
+    Take the identity map as \(\id_A\), which is clearly (strict) continuous. \(\id_A \circ f = f \circ \id_A = f\) clearly holds. Composition \(g \circ f\) of continuous functions is continuous:
+    \[s = \sup \mathcal{C} \Rightarrow f(s) = \sup f(\mathcal{C}) \Rightarrow g(f(s)) = \sup g(f(\mathcal{C}))\]
+    Same holds for strictness:
+    \[g(f(\bot)) = g(\bot) = \bot\]
+\end{solution}
+
+\begin{exercise}
+    Let \(\R^+\) be the set of nonnegative real numbers. Show that the poset \((\R^+ , \leq)\) is not an \(\omega\)-CPO.
+\end{exercise}
+\begin{solution}
+    Let \(\mathcal{C}\) be \((1, 2, \dots )\). Suppose it has a supremum \(s\). \(\lfloor s \rfloor + 1 \in \mathcal{C}\) and is greater than \(s\), therefore \(s\) is not the supremum.
+\end{solution}
+
+\begin{exercise}
+    Show that for every set \(S\), the poset \((\mathcal{P}(S), \subseteq)\) is a strict \(\omega\)-CPO.
+\end{exercise}
+\begin{solution}
+    Let \(\mathcal{C}\) be \((s_1, s_2 \dots )\). Let \(S' = \bigcup_{i = 1}^{\infty} \). By definition \(\forall i \ \ s_i \subseteq S'\) and if any other \(S''\) has this property, then \(S' \subseteq S''\) because otherwise \(\exists s \in S'' : s \notin S'\) which implies that \(\exists i : s_i \not\subseteq S''\). The bottom is \(\bot\).
+\end{solution}
+
+\begin{exercise}
+    Give an example of \(\omega\)-CPOs with a monote map between them that is not continuous.
+\end{exercise}
+\begin{solution}
+    Let the underlying set be \(\Z \cup \{a, b\}\), and the order be the standart \(\leq\) on integers, and \(\forall i \in \Z \ \ i \leq a \leq b\). Then let \(f\) be:
+    \[f(x) = \begin{cases}
+            x, & x \in \Z           \\
+            b, & \mathrm{otherwise}
+        \end{cases}\]
+    \(f\) is monotone since on \(\Z\) it is the indentity map, and \(b = f(a) \leq f(b) = b\). It is not continuous because the chain \(\mathcal{C}\) defined as \((0, 1, \dots)\) has \(a\) as its supremum, but \(\sup f(\mathcal{C}) = \sup \mathcal{C} = a \neq f(a) = b\).
+\end{solution}
+
+\begin{exercise}
+    Let \(g : \N \to \N\) be tge function such that \(f(n) = 2^n\). Exhibit \(g\) as the least fixed point of a continuous function \(\psi : \mathscr{P} \to \mathscr{P}\).
+\end{exercise}
+\begin{solution}
+    \(\psi(h)(n) = \begin{cases}
+        1            & n = 0 \\
+        2 * h(n - 1) & n > 0
+    \end{cases}\)
+\end{solution}
+
+\begin{exercise}
+    Exhibit the Fibonacci function as the least fixed point of a continuous function from an \(\omega\)-CPO to itself.
+\end{exercise}
+\begin{solution}
+    \(\psi(h)(n) = \begin{cases}
+        1                   & n = 0 \\
+        1                   & n = 1 \\
+        h(n - 1) + h(n - 2) & n > 1
+    \end{cases}\)
+\end{solution}
 
 \end{document}
